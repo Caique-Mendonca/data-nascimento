@@ -36,6 +36,7 @@ input, select{
 }
 input:focus, select:focus{
     border: solid 2px black;
+    transition: 300ms;
     transform: scale(1.06);
     outline: none;
 }
