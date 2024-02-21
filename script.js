@@ -69,7 +69,7 @@ botaoCalcular.addEventListener('click', (event)=>{
             mesInput = "December"
             break;
         case "null":
-            mesInput = undefined
+            mesInput = null
             break;
     }
     let data = new Date(`${mesInput} ${diaInput}, ${anoInput} 10:00:00`);
