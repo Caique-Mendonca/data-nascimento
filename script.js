@@ -9,28 +9,67 @@ botaoCalcular.addEventListener('click', (event)=>{
     console.log(diaInput)
     console.log(mesInput)
     console.log(anoInput)
-    if(diaInput == "" || mesInput == "null" || anoInput == ""){
-        if(diaInput == ""){
-            mesInput = null
-            diaInput = null
-            anoInput = null
-            aviso.innerText = "Por favor Preencha os dados corretamente"
-            aviso.innerText = "Por favor Preencha os dados corretamente"
+    // Tratamento para todos os inputs positivos
+    if(diaInput !== "" || mesInput !== "null" || anoInput !== ""){
+        if(diaInput !== ""){
+            document.querySelector('#dia-input').style.borderColor = "black" 
         }
-        else if(mesInput == "null"){
-            mesInput = null
-            diaInput = null
-            anoInput = null
-            aviso.innerText = "Por favor Preencha os dados corretamente"
+        if(mesInput !== "null"){
+            document.querySelector('#mes-input').style.borderColor = "black" 
         }
-        else if(anoInput == ""){
-            mesInput = null
-            diaInput = null
-            anoInput = null
-            aviso.innerText = "Por favor Preencha os dados corretamente"
+        if(anoInput !== ""){
+            document.querySelector('#ano-input').style.borderColor = "black"
         }
+        aviso.innerText = ""
+    }
+    // Tratamento para todos os inputs negativos
+    if(diaInput == "" && mesInput == "null" && anoInput == ""){
+        document.querySelector('#dia-input').style.borderColor = "red"
+        document.querySelector('#mes-input').style.borderColor = "red"
+        document.querySelector('#ano-input').style.borderColor = "red"
+        aviso.innerText = "Por favor Preencha os dados corretamente"
+    }
+    // Tratamento para 2 inputs nevativos e 1 positivo
+    if(diaInput !== "" && mesInput == "null" && anoInput == ""){
+        document.querySelector('#dia-input').style.borderColor = "black"
+        document.querySelector('#mes-input').style.borderColor = "red"
+        document.querySelector('#ano-input').style.borderColor = "red"
+        aviso.innerText = "Por favor Preencha os dados corretamente"
+    }else if(diaInput == "" && mesInput !== "null" && anoInput ==""){
+        document.querySelector('#dia-input').style.borderColor = "red"
+        document.querySelector('#mes-input').style.borderColor = "black"
+        document.querySelector('#ano-input').style.borderColor = "red"
+    }else if(diaInput == "" && mesInput == "null" && anoInput !==""){
+        document.querySelector('#dia-input').style.borderColor = "red"
+        document.querySelector('#mes-input').style.borderColor = "red"
+        document.querySelector('#ano-input').style.borderColor = "black"
+    }
+    // Tratamento separadamente
+    if(diaInput == ""){
+        mesInput = null
+        diaInput = null
+        anoInput = null
+        aviso.innerText = "Por favor Preencha os dados corretamente"
+        document.querySelector('#dia-input').style.borderColor = "red"
+    }
+    
+    if(mesInput == "null"){
+        mesInput = null
+        diaInput = null
+        anoInput = null
+        aviso.innerText = "Por favor Preencha os dados corretamente"
+        document.querySelector('#mes-input').style.borderColor = "red"
+    }
+    
+    if(anoInput == ""){
+        mesInput = null
+        diaInput = null
+        anoInput = null
+        aviso.innerText = "Por favor Preencha os dados corretamente"
+        document.querySelector('#ano-input').style.borderColor = "red"
     }
 
+    // Tratamento em Switch case dos meses 
     switch (mesInput) {
         case 1:
             mesInput = "January"
@@ -77,3 +116,11 @@ botaoCalcular.addEventListener('click', (event)=>{
     console.log(semana)
     resultado.innerText = semana
 })
+
+let botaoLimpar = document.querySelector('#botao-limpar').addEventListener('click', ()=>{
+        document.querySelector('#dia-input').style.borderColor = "black"
+        document.querySelector('#mes-input').style.borderColor = "black"
+        document.querySelector('#ano-input').style.borderColor = "black"
+        aviso.innerText = " "
+        resultado.innerText= " "
+    })
