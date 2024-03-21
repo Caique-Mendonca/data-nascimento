@@ -7,38 +7,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Descubra o dia da semana que você nasceu!</h1> 
-    </header>
-    <h3>Digite sua data ne nascimento: </h3>
-    <div class="form-container">
-        <form action="" method="get">
-            <label for="dia-input">Dia: </label>
-            <input name="dia" type="number" id="dia-input">
-            <label for="mes-input">Mês: </label>
-            <select name="mes" id="mes-input">
-                <option value="null" selected></option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-            </select>
-            <label for="ano-input">Ano: </label>
-            <input name="ano" type="number" id="ano-input"> <br>
-                <button type="submit" class="botao" id="botao-calcular">Calcular</button>
-                <button type="reset" class="botao" id="botao-limpar">Limpar</button>
-        </form>
-        <p id="aviso"></p>
-        <h3>O dia da semana é: <span id="resultado"></span></h3>
+    <div>
+        <h2>Digite sua data ne nascimento: </h2>
+        <div class="form-container">
+            <form action="" method="get">
+                <label for="dia-input">Dia: </label>
+                <input name="dia" type="number" id="dia-input">
+                <label for="mes-input">Mês: </label>
+                <select name="mes" id="mes-input">
+                    <option value="null" selected></option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <label for="ano-input">Ano: </label>
+                <input name="ano" type="number" id="ano-input"> <br>
+                    <button type="submit" class="botao" id="botao-calcular">Calcular</button>
+                    <button type="reset" class="botao" id="botao-limpar">Limpar</button>
+            </form>
+            <p id="aviso"></p>
+            <h3><span id="resultado"></span></h3>
+            <h3><span id="dias-de-vida"></span></h3>
+
+        </div>
     </div>
+    <footer>
+        Feito por <a href="https://github.com/Caique-Mendonca" target="_blank">Caique Mendonça</a>
+    </footer>
 </body>
 <script src="script.js"></script>
 </html>
