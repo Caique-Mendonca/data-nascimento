@@ -8,6 +8,13 @@ window.addEventListener('load',()=>{
         let aviso = document.querySelector('#aviso')
         let resultado = document.querySelector('#resultado')
         let diasDeVidaHTML = document.querySelector('#dias-de-vida')
+        let mesesDeVidaHTML = document.querySelector('#meses-de-vida')
+        let semanasDeVidaHTML = document.querySelector('#semanas-de-vida')
+        let minutosDeVidaHTML = document.querySelector('#minutos-de-vida')
+        let segundosDeVidaHTML = document.querySelector('#segundos-de-vida')
+        let milisegundosDeVidaHTML = document.querySelector('#milisegundos-de-vida')
+        let resultadosUl = document.querySelector('.resultados')
+        resultadosUl.style.display = "flex"
         console.log(diaInput)
         console.log(mesInput)
         console.log(anoInput)
@@ -114,20 +121,31 @@ window.addEventListener('load',()=>{
                 break;
         }
         let data = new Date(`${mesInput} ${diaInput}, ${anoInput} 10:00:00`); // Dia de nascimento
+        let dataAbsoluta = Date.parse(`${mesInput} ${diaInput}, ${anoInput}`) // Data em relação a 1/1/1970 em milisegundos
         let semana = data.toLocaleDateString('pt-BR', {weekday: 'long'}) // Dia da semana
+        let diaAtual = Date.now() // Dia de hoje em relação a 1/1/1970 em milisegundos
         console.log(semana)
         if(semana == "segunda-feira" || semana == "terça-feira" || semana == "quarta-feira" || semana == "quinta-feira" || semana == "sexta-feira"){
             resultado.innerText = `Você nasceu em uma ${semana}`
         }else if(semana == "sábado" || semana == "domingo"){
             resultado.innerText = `Você nasceu em um ${semana}`
         }
-        let diaAtual = new Date().toString('pt-br') // Dia de hoje
         console.log(data);
-        console.log(diaAtual);
-        let diferencaDatas = diaAtual - data // Diferença entre as duas datas em milisegundos
-        console.log(diferencaDatas);
-        let diasDesdeNascimento = Math.floor(diferencaDatas / (1000*60*60*24)) // Formula pra transformar milisegundos em dias 
-        diasDeVidaHTML.innerText = `Você tem ${diasDesdeNascimento} de vida`
+        console.log(diaAtual); 
+        console.log(dataAbsoluta);
+        console.log(diaAtual - dataAbsoluta );// Diferença entre as duas datas em milisegundos
+        let diasMilisegundos = diaAtual - dataAbsoluta
+        let diasDesdeNascimento = Math.floor(diasMilisegundos / (1000*60*60*24)) // Formula pra transformar milisegundos em dias 
+        diasDeVidaHTML.innerText = `Você tem ${diasDesdeNascimento.toLocaleString('pt-br')} dias de vida`
+        milisegundosDeVidaHTML.innerText = `Você tem ${diasMilisegundos.toLocaleString('pt-br')} milisegundos de vida`
+        let segundosDesdeNascimento = Math.floor(diasMilisegundos / 1000)
+        segundosDeVidaHTML.innerText = `Você tem ${segundosDesdeNascimento.toLocaleString('pt-br')} segundos de vida`
+        let minutosDesdeNascimento = Math.floor(diasMilisegundos / (1000*60))
+        minutosDeVidaHTML.innerText = `Você tem ${minutosDesdeNascimento.toLocaleString('pt-br')} minutos de vida`
+        let semanasDesdeNascimento = Math.floor(diasMilisegundos / (1000*60*60*24*7))
+        semanasDeVidaHTML.innerText = `Você tem ${semanasDesdeNascimento.toLocaleString('pt-br')} semanas de vida`
+        let mesesDesdeNascimento = Math.floor(diasMilisegundos / (1000*60*60*24*30))
+        mesesDeVidaHTML.innerText = `Você tem aproximadente ${mesesDesdeNascimento.toLocaleString('pt-br')} mêses de vida`
     })
     
     let botaoLimpar = document.querySelector('#botao-limpar')
@@ -135,6 +153,7 @@ window.addEventListener('load',()=>{
         document.querySelector('#dia-input').style.borderColor = "black"
         document.querySelector('#mes-input').style.borderColor = "black"
         document.querySelector('#ano-input').style.borderColor = "black"
+        document.querySelector('.resultados').innerHTML = " "
         aviso.innerText = " "
         resultado.innerText= " "
     })

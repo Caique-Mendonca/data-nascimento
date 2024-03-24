@@ -1,6 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&display=swap');
+
 *{
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+.resultados span{
+    font-size: 16px;
+    color: #fff;
+}
+.resultados li{
+    margin: 8px 0px;
+    text-align: left;
+    border: #fff 1px solid;
+    padding: 8px;
+    width: 24rem;
+    border-radius: 10px;
+}
+.resultados{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    display: none;
 }
 body{
     margin: 0;
@@ -11,19 +34,12 @@ body{
     background-color: #696969;
     height: 98vh;
 }
-h2{
+h1{
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 35px;
     color: #ffffff;
     text-align: center;
     margin-bottom: 10px;
-}
-h3{
-    margin-top: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #ffffff;
-    text-align: center;
 }
 input, select{
     width: 55px;
@@ -43,6 +59,9 @@ input:focus, select:focus, input:hover, select:hover{
     transform: scale(1.06);
     outline: none;
 }
+#ano-input{
+    width: 60px;
+}
 header{
     background-color: black;
     width: 100vw;
@@ -53,7 +72,6 @@ header{
     text-align: center;
 }
 label{
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
     font-weight: bold;
     color: black;
@@ -63,7 +81,6 @@ label{
     padding: 8px;
     border-radius: 10px;
     border: none;
-    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     
 }
@@ -91,7 +108,4 @@ label{
 #aviso{
     color: red;
     margin-bottom: 0;
-}
-footer{
-    font-family: sans-serif;
 }
